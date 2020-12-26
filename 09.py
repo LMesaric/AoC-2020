@@ -48,8 +48,8 @@ def find_contiguous_range(wanted_sum, data_stream):
     return queue
 
 
-invalid_sum = checker(input_generator("inputs/9.txt"))
+invalid_sum = checker(input_generator("inputs/09.txt"))
 print(invalid_sum)
 
-found_range = find_contiguous_range(invalid_sum, input_generator("inputs/9.txt"))
+found_range = find_contiguous_range(invalid_sum, input_generator("inputs/09.txt"))
 print(min(found_range) + max(found_range))

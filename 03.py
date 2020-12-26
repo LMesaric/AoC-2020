@@ -1,6 +1,6 @@
 from math import prod
 
-with open("inputs/3.txt") as f:
+with open("inputs/03.txt") as f:
     data = [x.strip() for x in f.readlines()]
 
 slopes = [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)]

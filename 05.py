@@ -1,4 +1,4 @@
-with open("inputs/5.txt") as f:
+with open("inputs/05.txt") as f:
     data = f.readlines()
 
 seat_ids = set()

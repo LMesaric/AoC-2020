@@ -58,6 +58,6 @@ def swap_nop_jmp(seq):
     return None
 
 
-input_seq = list(command_generator("inputs/8.txt"))
+input_seq = list(command_generator("inputs/08.txt"))
 print(run_boot_seq(input_seq))
 print(swap_nop_jmp(input_seq))

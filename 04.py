@@ -66,7 +66,7 @@ def validate_pass(psprt):
 
 mandatory = {'byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'}
 cnt = 0
-for raw_passport in passport_generator("inputs/4.txt"):
+for raw_passport in passport_generator("inputs/04.txt"):
     fields = dict(field.split(':') for field in raw_passport.split())
     if mandatory.issubset(fields) and len(fields) in (7, 8):
         if validate_pass(fields):

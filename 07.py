@@ -61,14 +61,14 @@ def count_bags_inside(graph, start, dp):
 
 set_ = set()
 unique_bags(
-    build_graph_reverse(rule_generator("inputs/7.txt")),
+    build_graph_reverse(rule_generator("inputs/07.txt")),
     "shiny gold",
     set_
 )
 print(len(set_))
 
 print(count_bags_inside(
-    build_graph(rule_generator("inputs/7.txt")),
+    build_graph(rule_generator("inputs/07.txt")),
     "shiny gold",
     dict()
 ))

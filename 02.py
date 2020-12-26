@@ -1,4 +1,4 @@
-with open("inputs/2.txt") as f:
+with open("inputs/02.txt") as f:
     data = f.readlines()
 
 cnt1 = cnt2 = 0

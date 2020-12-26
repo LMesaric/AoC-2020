@@ -1,4 +1,4 @@
-with open("inputs/1.txt") as f:
+with open("inputs/01.txt") as f:
     data = set(map(int, f.readlines()))
 
 

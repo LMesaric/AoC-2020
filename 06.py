@@ -26,5 +26,5 @@ def count_all_per_group(group):
     return len(q_set)
 
 
-print(sum(count_any_per_group(group) for group in group_generator("inputs/6.txt")))
-print(sum(count_all_per_group(group) for group in group_generator("inputs/6.txt")))
+print(sum(count_any_per_group(group) for group in group_generator("inputs/06.txt")))
+print(sum(count_all_per_group(group) for group in group_generator("inputs/06.txt")))
