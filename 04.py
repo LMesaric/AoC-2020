@@ -1,15 +1,11 @@
-def passport_generator(path):
+from itertools import groupby
+
+
+def input_reader(path):
     with open(path) as f:
-        data = [x.strip() for x in f.readlines()]
-        data.append('')
-    curr_pass = ""
-    for line in data:
-        if not line:
-            yield curr_pass
-            curr_pass = ""
-        else:
-            curr_pass += " "
-            curr_pass += line
+        lines = [x.rstrip() for x in f]
+    groups = [list(g) for k, g in groupby(lines, lambda l: bool(l)) if k]
+    return [' '.join(l) for l in groups]
 
 
 def validate_num_range(num, cnt, low, high):
@@ -65,11 +61,15 @@ def validate_pass(psprt):
 
 
 mandatory = {'byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'}
-cnt = 0
-for raw_passport in passport_generator("inputs/04.txt"):
+cnt_a = cnt_b = 0
+
+data = input_reader("inputs/04.txt")
+for raw_passport in data:
     fields = dict(field.split(':') for field in raw_passport.split())
     if mandatory.issubset(fields) and len(fields) in (7, 8):
+        cnt_a += 1
         if validate_pass(fields):
-            cnt += 1
+            cnt_b += 1
 
-print(cnt)
+print(cnt_a)
+print(cnt_b)
