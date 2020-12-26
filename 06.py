@@ -1,30 +1,17 @@
-from itertools import chain
+from functools import reduce
+from itertools import chain, groupby
+from operator import and_
 
 
 def group_generator(path):
     with open(path) as f:
-        data = [x.strip() for x in f]
-        data.append('')
-
-    curr_group = []
-    for line in data:
-        if not line:
-            yield curr_group
-            curr_group = []
-        else:
-            curr_group.append(line)
+        lines = [x.rstrip() for x in f]
+    return [list(g) for k, g in groupby(lines, lambda l: bool(l)) if k]
 
 
 count_any_per_group = lambda group: len(set(chain.from_iterable(group)))
+count_all_per_group = lambda group: len(reduce(and_, [set(g) for g in group]))
 
-
-def count_all_per_group(group):
-    group_iter = iter(group)
-    q_set = set(next(group_iter))
-    for answ in group_iter:
-        q_set.intersection_update(answ)
-    return len(q_set)
-
-
-print(sum(count_any_per_group(group) for group in group_generator("inputs/06.txt")))
-print(sum(count_all_per_group(group) for group in group_generator("inputs/06.txt")))
+data = group_generator("inputs/06.txt")
+print(sum(count_any_per_group(group) for group in data))
+print(sum(count_all_per_group(group) for group in data))
