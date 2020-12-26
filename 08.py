@@ -10,7 +10,7 @@ class CmdValPair:
 def command_generator(path):
     with open(path) as f:
         for line in f:
-            cmd, val = line.strip().split()
+            cmd, val = line.rstrip().split()
             yield CmdValPair(cmd, int(val))
 
 
@@ -20,8 +20,7 @@ def run_boot_seq(seq):
     max_i = len(seq) - 1
     i = 0
     while True:
-        if i < 0 or i > max_i + 1:
-            raise RuntimeError("Boot failed")
+        assert 0 <= i <= max_i + 1
         if i == max_i + 1:
             return accumulator, True
         if i in visited:
@@ -55,9 +54,7 @@ def swap_nop_jmp(seq):
 
         cmd_val.cmd = cmd_before
 
-    return None
-
 
 input_seq = list(command_generator("inputs/08.txt"))
-print(run_boot_seq(input_seq))
+print(run_boot_seq(input_seq)[0])
 print(swap_nop_jmp(input_seq))

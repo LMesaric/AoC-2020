@@ -8,9 +8,9 @@ for line in data:
 
 min_ = min(seat_ids)
 max_ = max(seat_ids)
-print("Max:", max_)
+print(max_)
 
 for i in range(min_, max_ + 1):
     if i not in seat_ids:
-        print("Mine:", i)
+        print(i)
         break

@@ -19,5 +19,5 @@ for i in range(len(slopes)):
         pos_right = (pos_right + slopes[i][0]) % row_len
         cnts[i] += data[pos_down][pos_right] == '#'
 
-print(cnts)
+print(cnts[1])
 print(prod(cnts))
